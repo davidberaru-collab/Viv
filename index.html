@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apostolic Alignment School of Ministry</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --primary: #1d4ed8;
+      --primary-dark: #1e3a8a;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #f59e0b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #1d4ed8 60%, #2563eb);
+      color: #fff;
+      padding: 1rem 0 4rem;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.25rem 0 1rem;
+    }
+    .logo { font-weight: 700; font-size: 1rem; letter-spacing: 0.2px; }
+    .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .nav-links a { color: #dbeafe; text-decoration: none; font-weight: 500; }
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: center;
+      padding-top: 2rem;
+    }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
+    .hero p { color: #dbeafe; margin-bottom: 1.5rem; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      padding: 0.72rem 1.15rem;
+      border-radius: 0.55rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+      display: inline-block;
+    }
+    .btn-primary { background: #fff; color: var(--primary-dark); }
+    .btn-ghost { color: #fff; border-color: rgba(255,255,255,.5); }
+    .hero-card {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 0.85rem;
+      padding: 1.25rem;
+      backdrop-filter: blur(2px);
+    }
+    section { padding: 4rem 0; }
+    h2 { font-size: clamp(1.45rem, 3.5vw, 2.1rem); margin-top: 0; }
+    .muted { color: var(--muted); }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1rem;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+    }
+    .banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.85rem;
+      padding: 1rem 1.15rem;
+      margin-top: 1.2rem;
+    }
+    .cta {
+      background: var(--primary-dark);
+      color: #fff;
+      border-radius: 0.95rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      padding: 1.35rem 0 2rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Apostolic Alignment School of Ministry</div>
+        <div class="nav-links">
+          <a href="#programs">Programs</a>
+          <a href="#about">About</a>
+          <a href="#admissions">Admissions</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div>
+          <h1>Equipping Leaders for Kingdom Impact</h1>
+          <p>Welcome to <strong>Apostolic Alignment School of Ministry</strong>—a Christ-centered training community focused on biblical depth, spiritual formation, and practical ministry leadership.</p>
+          <div class="btn-row">
+            <a href="#admissions" class="btn btn-primary">Apply Now</a>
+            <a href="#programs" class="btn btn-ghost">View Programs</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Next Enrollment Window</h3>
+          <p>Classes begin each fall and spring. New students receive onboarding, mentorship pairing, and a personalized study track.</p>
+          <p><strong>Format:</strong> Hybrid Learning (Online + Intensive Sessions)</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2>About the School</h2>
+      <p class="muted">Apostolic Alignment School of Ministry helps emerging and established leaders grow in theology, character, and ministry practice. Our faculty and mentors are committed to raising up servant-leaders who carry biblical conviction and spiritual clarity.</p>
+      <div class="banner">"Study to show yourself approved" is more than a verse to us—it is a discipleship model for lifelong growth.</div>
+    </div>
+  </section>
+
+  <section id="programs">
+    <div class="container">
+      <h2>Programs of Study</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Foundations Certificate</h3>
+          <p>Core biblical literacy, doctrine, and spiritual disciplines for ministry readiness.</p>
+        </article>
+        <article class="card">
+          <h3>Leadership Diploma</h3>
+          <p>Advanced training in leadership, pastoral care, preaching, and church development.</p>
+        </article>
+        <article class="card">
+          <h3>Ministry Practicum</h3>
+          <p>Supervised field experience with practical ministry assignments and mentor evaluations.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="admissions">
+    <div class="container">
+      <h2>Admissions</h2>
+      <p class="muted">Prospective students are invited to complete an application, provide a pastoral reference, and schedule a ministry interview.</p>
+      <div class="cards">
+        <article class="card"><h3>1. Apply</h3><p>Submit your online application and personal ministry statement.</p></article>
+        <article class="card"><h3>2. Interview</h3><p>Meet with an admissions mentor to discuss your calling and goals.</p></article>
+        <article class="card"><h3>3. Enroll</h3><p>Receive acceptance, complete orientation, and begin your course track.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="cta">
+        <h2>Ready to Begin Your Ministry Journey?</h2>
+        <p>Contact our admissions team to learn more about upcoming cohorts.</p>
+        <a href="mailto:admissions@apostolicalignment.org" class="btn btn-primary">Contact Admissions</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Apostolic Alignment School of Ministry. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
