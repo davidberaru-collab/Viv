@@ -1,137 +1,229 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apostolic Alignment School of Ministry</title>
+  <meta name="description" content="Apostolic Alignment School of Ministry equips believers through biblical teaching, leadership development, and ministry training." />
   <style>
     :root {
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --primary: #1d4ed8;
-      --primary-dark: #1e3a8a;
+      --navy: #0b1b3f;
+      --blue: #1d4ed8;
+      --light: #f8fafc;
+      --white: #ffffff;
       --text: #0f172a;
       --muted: #475569;
-      --accent: #f59e0b;
+      --gold: #f59e0b;
       --border: #e2e8f0;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
       color: var(--text);
-      background: var(--bg);
+      background: var(--light);
       line-height: 1.6;
     }
-    .container { width: min(1100px, 92vw); margin: 0 auto; }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
     header {
-      background: linear-gradient(135deg, #1e3a8a, #1d4ed8 60%, #2563eb);
-      color: #fff;
-      padding: 1rem 0 4rem;
+      color: var(--white);
+      background: radial-gradient(circle at top right, #2563eb 0%, #1d4ed8 35%, #10224b 100%);
+      padding-bottom: 60px;
     }
-    nav {
+
+    .topbar {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      padding: 0.25rem 0 1rem;
+      justify-content: space-between;
+      padding: 16px 0;
+      position: relative;
     }
-    .logo { font-weight: 700; font-size: 1rem; letter-spacing: 0.2px; }
-    .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .nav-links a { color: #dbeafe; text-decoration: none; font-weight: 500; }
+
+    .logo { font-weight: 700; letter-spacing: .2px; }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid rgba(255,255,255,.35);
+      background: transparent;
+      color: var(--white);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
     .hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      gap: 24px;
+      grid-template-columns: 1.2fr 1fr;
       align-items: center;
-      padding-top: 2rem;
+      margin-top: 36px;
     }
-    h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0 0 0.75rem; }
-    .hero p { color: #dbeafe; margin-bottom: 1.5rem; }
-    .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.6vw, 3.4rem);
+      line-height: 1.1;
+    }
+
+    .hero p { color: #dbeafe; }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
     .btn {
-      padding: 0.72rem 1.15rem;
-      border-radius: 0.55rem;
-      font-weight: 600;
+      border: 0;
+      border-radius: 10px;
+      font-weight: 700;
       text-decoration: none;
-      border: 1px solid transparent;
+      padding: 12px 18px;
       display: inline-block;
+      cursor: pointer;
     }
-    .btn-primary { background: #fff; color: var(--primary-dark); }
-    .btn-ghost { color: #fff; border-color: rgba(255,255,255,.5); }
-    .hero-card {
+
+    .btn-primary { background: var(--white); color: var(--navy); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.45); }
+
+    .hero-panel {
       background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.22);
-      border-radius: 0.85rem;
-      padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: var(--radius);
+      padding: 20px;
       backdrop-filter: blur(2px);
     }
-    section { padding: 4rem 0; }
-    h2 { font-size: clamp(1.45rem, 3.5vw, 2.1rem); margin-top: 0; }
+
+    section { padding: 64px 0; }
+    h2 { font-size: clamp(1.5rem, 3.2vw, 2.2rem); margin: 0 0 10px; }
     .muted { color: var(--muted); }
-    .cards {
+
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 22px;
     }
+
     .card {
-      background: var(--surface);
+      background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 0.85rem;
-      padding: 1rem;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
     }
-    .banner {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      border-radius: 0.85rem;
-      padding: 1rem 1.15rem;
-      margin-top: 1.2rem;
+
+    .card h3 { margin-top: 0; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 18px;
     }
-    .cta {
-      background: var(--primary-dark);
-      color: #fff;
-      border-radius: 0.95rem;
-      padding: 2rem;
-      text-align: center;
+
+    form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
     }
+
+    .field { margin-bottom: 12px; }
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+    input, textarea, select {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font: inherit;
+    }
+
+    textarea { min-height: 92px; resize: vertical; }
+    .status { margin-top: 10px; font-weight: 600; }
+
     footer {
-      border-top: 1px solid var(--border);
-      color: var(--muted);
+      background: #020817;
+      color: #94a3b8;
+      padding: 24px 0;
       text-align: center;
-      padding: 1.35rem 0 2rem;
-      font-size: 0.95rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .two-col { grid-template-columns: 1fr; }
+      .menu-toggle { display: inline-block; }
+      nav { position: absolute; top: 60px; right: 0; left: 0; display: none; }
+      nav.open { display: block; }
+      nav ul {
+        flex-direction: column;
+        gap: 8px;
+        background: #0f224f;
+        padding: 14px;
+        border: 1px solid rgba(255,255,255,.2);
+        border-radius: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <nav>
+      <div class="topbar">
         <div class="logo">Apostolic Alignment School of Ministry</div>
-        <div class="nav-links">
-          <a href="#programs">Programs</a>
-          <a href="#about">About</a>
-          <a href="#admissions">Admissions</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#apply">Apply</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
 
       <div class="hero">
         <div>
-          <h1>Equipping Leaders for Kingdom Impact</h1>
-          <p>Welcome to <strong>Apostolic Alignment School of Ministry</strong>—a Christ-centered training community focused on biblical depth, spiritual formation, and practical ministry leadership.</p>
-          <div class="btn-row">
-            <a href="#admissions" class="btn btn-primary">Apply Now</a>
-            <a href="#programs" class="btn btn-ghost">View Programs</a>
+          <h1>Train. Align. Send.</h1>
+          <p>Welcome to Apostolic Alignment School of Ministry, where biblical truth, spiritual formation, and hands-on ministry practice come together to prepare leaders for effective Kingdom service.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#apply">Start Application</a>
+            <a class="btn btn-outline" href="#programs">Explore Programs</a>
           </div>
         </div>
-        <div class="hero-card">
-          <h3>Next Enrollment Window</h3>
-          <p>Classes begin each fall and spring. New students receive onboarding, mentorship pairing, and a personalized study track.</p>
-          <p><strong>Format:</strong> Hybrid Learning (Online + Intensive Sessions)</p>
-        </div>
+
+        <aside class="hero-panel">
+          <h3>Upcoming Cohort</h3>
+          <p><strong>Term:</strong> Fall 2026</p>
+          <p><strong>Format:</strong> Online weekly + onsite intensives</p>
+          <p><strong>Tracks:</strong> Foundations, Leadership, Practicum</p>
+        </aside>
       </div>
     </div>
   </header>
@@ -139,59 +231,108 @@
   <section id="about">
     <div class="container">
       <h2>About the School</h2>
-      <p class="muted">Apostolic Alignment School of Ministry helps emerging and established leaders grow in theology, character, and ministry practice. Our faculty and mentors are committed to raising up servant-leaders who carry biblical conviction and spiritual clarity.</p>
-      <div class="banner">"Study to show yourself approved" is more than a verse to us—it is a discipleship model for lifelong growth.</div>
+      <p class="muted">Our mission is to equip believers to serve with sound doctrine, Christlike character, and Spirit-led leadership. Students are mentored by seasoned ministry leaders and trained to minister in churches, communities, and missions contexts.</p>
     </div>
   </section>
 
   <section id="programs">
     <div class="container">
-      <h2>Programs of Study</h2>
-      <div class="cards">
+      <h2>Programs</h2>
+      <div class="grid">
         <article class="card">
           <h3>Foundations Certificate</h3>
-          <p>Core biblical literacy, doctrine, and spiritual disciplines for ministry readiness.</p>
+          <p>Scripture survey, doctrine, prayer life, and personal spiritual disciplines.</p>
         </article>
         <article class="card">
           <h3>Leadership Diploma</h3>
-          <p>Advanced training in leadership, pastoral care, preaching, and church development.</p>
+          <p>Preaching, pastoral care, administration, team leadership, and ethics.</p>
         </article>
         <article class="card">
           <h3>Ministry Practicum</h3>
-          <p>Supervised field experience with practical ministry assignments and mentor evaluations.</p>
+          <p>Supervised ministry placement with real-world assignments and feedback.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="admissions">
-    <div class="container">
-      <h2>Admissions</h2>
-      <p class="muted">Prospective students are invited to complete an application, provide a pastoral reference, and schedule a ministry interview.</p>
-      <div class="cards">
-        <article class="card"><h3>1. Apply</h3><p>Submit your online application and personal ministry statement.</p></article>
-        <article class="card"><h3>2. Interview</h3><p>Meet with an admissions mentor to discuss your calling and goals.</p></article>
-        <article class="card"><h3>3. Enroll</h3><p>Receive acceptance, complete orientation, and begin your course track.</p></article>
+  <section id="apply">
+    <div class="container two-col">
+      <div>
+        <h2>Apply Now</h2>
+        <p class="muted">Complete this quick pre-application and our admissions office will contact you with next steps.</p>
+        <div class="card">
+          <h3>What You'll Need</h3>
+          <ul>
+            <li>Personal testimony and ministry goals</li>
+            <li>Pastoral or leadership reference</li>
+            <li>Availability for orientation</li>
+          </ul>
+        </div>
       </div>
+
+      <form id="applyForm" novalidate>
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="field">
+          <label for="track">Program Track</label>
+          <select id="track" name="track" required>
+            <option value="">Select a track</option>
+            <option>Foundations Certificate</option>
+            <option>Leadership Diploma</option>
+            <option>Ministry Practicum</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Ministry Calling / Goals</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn" style="background: var(--blue); color: white;" type="submit">Submit Interest</button>
+        <div class="status" id="formStatus" aria-live="polite"></div>
+      </form>
     </div>
   </section>
 
   <section id="contact">
     <div class="container">
-      <div class="cta">
-        <h2>Ready to Begin Your Ministry Journey?</h2>
-        <p>Contact our admissions team to learn more about upcoming cohorts.</p>
-        <a href="mailto:admissions@apostolicalignment.org" class="btn btn-primary">Contact Admissions</a>
+      <div class="card">
+        <h2>Contact Admissions</h2>
+        <p class="muted">Email us at <a href="mailto:admissions@apostolicalignment.org">admissions@apostolicalignment.org</a> for enrollment details and scheduling.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">© <span id="year"></span> Apostolic Alignment School of Ministry. All rights reserved.</div>
+    © <span id="year"></span> Apostolic Alignment School of Ministry · All Rights Reserved
   </footer>
 
   <script>
+    const nav = document.querySelector('nav');
+    document.querySelector('.menu-toggle').addEventListener('click', () => nav.classList.toggle('open'));
+
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('applyForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        status.textContent = 'Please complete all required fields.';
+        status.style.color = '#b91c1c';
+        form.reportValidity();
+        return;
+      }
+
+      const name = document.getElementById('name').value.trim();
+      status.textContent = `Thanks, ${name}! Your interest form has been recorded.`;
+      status.style.color = '#166534';
+      form.reset();
+    });
   </script>
 </body>
 </html>
