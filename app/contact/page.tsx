@@ -1,0 +1,4 @@
+import type { Metadata } from "next";
+import SectionHeader from "@/components/SectionHeader";
+export const metadata: Metadata = { title: "Contact", description: "Connect for training, speaking, and ministry partnerships." };
+export default function Page(){return <main className="mx-auto w-[92vw] max-w-3xl py-16"><SectionHeader title="Contact" description="Tell us about your event or training need." /><form className="rounded-xl border border-slate-200 bg-white p-6"><div className="grid gap-4 md:grid-cols-2"><input placeholder="Name" className="rounded-lg border border-slate-300 px-4 py-2"/><input placeholder="Email" type="email" className="rounded-lg border border-slate-300 px-4 py-2"/></div><textarea placeholder="Message" className="mt-4 h-32 w-full rounded-lg border border-slate-300 px-4 py-2"/><button className="mt-4 rounded-lg bg-brand-600 px-4 py-2 text-white">Send Message</button>{/* Future CRM integration hook here. */}</form></main>;}
